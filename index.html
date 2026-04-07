@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ground One Coffee — Roasted in Botswana</title>
+  <meta name="description" content="Ground One Coffee. Roasted in Botswana. Premium 100% Arabica coffee for offices, hospitality, retail and gifting." />
+  <link rel="preload" as="image" href="groundone-visuals.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0a0a;
+      --bg-2:#12100e;
+      --panel:#151210;
+      --panel-2:#1a1714;
+      --text:#f2ede4;
+      --muted:#c9bfaf;
+      --soft:#9f9383;
+      --line:rgba(255,255,255,.08);
+      --earth:#8a7355;
+      --bone:#e8e0d0;
+      --accent:#bfa07d;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --max:1200px;
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left, rgba(138,115,85,.12), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(191,160,125,.08), transparent 24%),
+        linear-gradient(180deg, #0a0a0a 0%, #0e0d0b 40%, #12100e 100%);
+      color:var(--text);
+      font-family:Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.5;
+      overflow-x:hidden;
+    }
+
+    img{max-width:100%; display:block}
+    a{text-decoration:none; color:inherit}
+
+    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto}
+
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:blur(16px);
+      background:rgba(10,10,10,.7);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .nav{
+      min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:20px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:14px; font-weight:800; letter-spacing:.04em; text-transform:uppercase;
+    }
+    .brand-mark{
+      width:42px; height:42px; border-radius:14px;
+      background:linear-gradient(180deg, rgba(232,224,208,.16), rgba(138,115,85,.18));
+      border:1px solid rgba(232,224,208,.14);
+      display:grid; place-items:center;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+      color:var(--bone);
+      font-size:18px;
+    }
+    .brand-text small{display:block; color:var(--soft); font-size:11px; font-weight:600; letter-spacing:.18em}
+    .brand-text strong{display:block; font-size:15px}
+
+    .nav-links{display:flex; align-items:center; gap:26px; color:var(--muted); font-size:14px}
+    .nav-links a:hover{color:var(--text)}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      min-height:52px; padding:0 22px; border-radius:999px;
+      font-weight:700; font-size:14px; letter-spacing:.01em;
+      transition:.25s ease;
+    }
+    .btn-primary{
+      color:#111;
+      background:linear-gradient(180deg, #f0e7d8 0%, #cfbaa0 100%);
+      box-shadow:0 12px 28px rgba(191,160,125,.2);
+    }
+    .btn-primary:hover{transform:translateY(-1px); filter:brightness(1.03)}
+    .btn-secondary{
+      color:var(--text); border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.02);
+    }
+    .btn-secondary:hover{background:rgba(255,255,255,.05)}
+
+    .hero{
+      position:relative;
+      padding:72px 0 42px;
+    }
+    .hero-grid{
+      display:grid; grid-template-columns:1.05fr .95fr; gap:36px; align-items:stretch;
+    }
+    .hero-copy{
+      padding:42px 0 28px;
+    }
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.16em;
+      margin-bottom:20px;
+    }
+    .eyebrow::before{
+      content:""; width:36px; height:1px; background:linear-gradient(90deg, var(--earth), transparent);
+    }
+    h1{
+      margin:0;
+      font-family:Manrope, Inter, sans-serif;
+      font-size:clamp(44px, 7vw, 84px);
+      line-height:.96;
+      letter-spacing:-.045em;
+      max-width:760px;
+    }
+    .hero p{
+      margin:22px 0 0; max-width:620px;
+      color:var(--muted); font-size:clamp(18px, 2vw, 22px); line-height:1.55;
+    }
+    .hero-actions{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
+    .trust-row{
+      display:flex; flex-wrap:wrap; gap:12px; margin-top:26px;
+    }
+    .pill{
+      border:1px solid rgba(255,255,255,.08); color:var(--muted);
+      background:rgba(255,255,255,.025); border-radius:999px; padding:10px 14px; font-size:13px; font-weight:600;
+    }
+
+    .hero-visual{
+      position:relative; min-height:620px; border-radius:36px; overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(13,11,9,.15), rgba(13,11,9,.64)),
+        radial-gradient(circle at 70% 22%, rgba(255,255,255,.12), transparent 22%),
+        radial-gradient(circle at 28% 78%, rgba(138,115,85,.32), transparent 30%),
+        linear-gradient(135deg, #2c2218 0%, #13110f 44%, #090909 100%);
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      isolation:isolate;
+    }
+    .hero-visual::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.34)),
+        url('groundone-visuals.webp') center/cover no-repeat;
+      mix-blend-mode:normal;
+      opacity:.55;
+    }
+    .hero-visual::after{
+      content:""; position:absolute; inset:auto 0 0 0; height:55%;
+      background:linear-gradient(180deg, transparent, rgba(0,0,0,.45));
+    }
+    .visual-card{
+      position:absolute; left:28px; right:28px; bottom:28px; z-index:2;
+      background:rgba(13,11,9,.65); backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,.08); border-radius:24px;
+      padding:20px 22px;
+      display:grid; gap:14px;
+    }
+    .visual-card .mini{
+      color:var(--soft); font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+    }
+    .visual-card h3{margin:0; font-size:28px; line-height:1.05; max-width:420px}
+    .visual-card p{margin:0; color:var(--muted); font-size:15px; max-width:420px}
+
+    section{padding:78px 0}
+
+    .statement{
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+      border-top:1px solid rgba(255,255,255,.05);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+    .statement-wrap{
+      display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center;
+    }
+    .statement h2,.section-head h2{
+      margin:0; font-family:Manrope, Inter, sans-serif;
+      font-size:clamp(32px, 4.3vw, 56px); line-height:1.02; letter-spacing:-.04em;
+    }
+    .statement p,.section-head p{margin:16px 0 0; color:var(--muted); font-size:18px; max-width:760px}
+
+    .quote-card{
+      background:linear-gradient(180deg, rgba(232,224,208,.05), rgba(138,115,85,.06));
+      border:1px solid rgba(255,255,255,.08); border-radius:24px; padding:24px;
+      color:var(--bone); box-shadow:var(--shadow);
+    }
+    .quote-card strong{display:block; font-size:15px; text-transform:uppercase; letter-spacing:.14em; color:var(--soft); margin-bottom:10px}
+    .quote-card span{display:block; font-size:26px; line-height:1.18}
+
+    .why-grid{
+      display:grid; grid-template-columns:repeat(5, 1fr); gap:16px; margin-top:34px;
+    }
+    .why-card, .supply-card, .product-card, .machine-card {
+      background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+      border:1px solid rgba(255,255,255,.08); border-radius:24px; padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .why-card h3, .supply-card h3, .product-card h3, .machine-card h3 {margin:0 0 10px; font-size:22px; line-height:1.1}
+    .why-card p, .supply-card p, .product-card p, .machine-card p {margin:0; color:var(--muted); font-size:15px}
+    .kicker{display:block; margin-bottom:14px; color:var(--soft); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.14em}
+
+    .two-col{
+      display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:stretch;
+    }
+
+    .photo-band{padding-top:0}
+    .photo-grid{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:20px; align-items:stretch;
+    }
+    .photo-panel{
+      position:relative; min-height:420px; overflow:hidden; border-radius:30px;
+      border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow);
+      background:#17120f;
+    }
+    .photo-panel img{width:100%; height:100%; object-fit:cover}
+    .photo-panel .overlay{
+      position:absolute; inset:auto 0 0 0; padding:22px;
+      background:linear-gradient(180deg, transparent, rgba(0,0,0,.68));
+    }
+    .photo-panel .overlay strong{
+      display:block; color:var(--bone); font-size:24px; line-height:1.08; letter-spacing:-.03em;
+    }
+    .photo-panel .overlay span{
+      display:block; margin-top:8px; color:var(--muted); font-size:15px;
+    }
+    .product-shot{
+      position:relative; min-height:360px; overflow:hidden;
+      background:#120f0d;
+    }
+    .product-shot::before{
+      content:""; position:absolute; inset:0;
+      background-image:
+        linear-gradient(180deg, rgba(8,8,8,.14), rgba(8,8,8,.74)),
+        url('groundone-visuals.webp');
+      background-size:cover, cover;
+      background-repeat:no-repeat;
+      opacity:1;
+    }
+    .product-shot.medium::before{background-position:center, 64% 29%;}
+    .product-shot.dark::before{background-position:center, 66% 29%;}
+    .product-shot > *{position:relative; z-index:1}
+
+    .product-card.featured{
+      min-height:360px;
+      background:
+        linear-gradient(180deg, rgba(5,5,5,.15), rgba(5,5,5,.68)),
+        radial-gradient(circle at top right, rgba(191,160,125,.14), transparent 26%),
+        linear-gradient(135deg, #2e2318 0%, #17120d 44%, #0b0b0b 100%);
+      position:relative; overflow:hidden;
+    }
+    .product-card.featured::after{
+      content:"GROUND ONE";
+      position:absolute; right:-18px; bottom:18px;
+      font-size:clamp(48px, 8vw, 112px); line-height:.85; font-weight:800;
+      letter-spacing:-.06em; color:rgba(255,255,255,.05);
+      pointer-events:none;
+    }
+    .product-meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px}
+    .product-meta span{
+      font-size:12px; color:var(--muted); border:1px solid rgba(255,255,255,.08);
+      border-radius:999px; padding:8px 12px;
+    }
+
+    .supply-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-top:30px}
+
+    .machine-wrap{
+      display:grid; grid-template-columns:1.05fr .95fr; gap:20px; align-items:stretch;
+    }
+    .machine-card.main{
+      min-height:320px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01)),
+        radial-gradient(circle at 100% 0%, rgba(138,115,85,.18), transparent 32%);
+    }
+    .machine-list{display:grid; gap:12px; margin-top:18px}
+    .machine-list div{
+      border-top:1px solid rgba(255,255,255,.08); padding-top:12px; color:var(--muted);
+    }
+
+    .cta-band{
+      padding:72px 0 90px;
+    }
+    .cta-panel{
+      border-radius:36px; padding:36px;
+      background:
+        linear-gradient(180deg, rgba(232,224,208,.06), rgba(138,115,85,.08)),
+        linear-gradient(135deg, #16120f 0%, #0e0d0c 100%);
+      border:1px solid rgba(255,255,255,.08);
+      display:grid; grid-template-columns:1.15fr .85fr; gap:22px; align-items:center;
+      box-shadow:var(--shadow);
+    }
+    .cta-panel h2{margin:0; font-size:clamp(34px, 5vw, 62px); line-height:.98; letter-spacing:-.05em}
+    .cta-panel p{margin:14px 0 0; color:var(--muted); font-size:18px; max-width:700px}
+    .cta-side{
+      display:grid; gap:14px; justify-items:start;
+    }
+    .contact-chip{
+      width:100%; background:rgba(255,255,255,.035); border:1px solid rgba(255,255,255,.08);
+      border-radius:20px; padding:16px 18px;
+    }
+    .contact-chip strong{display:block; color:var(--soft); font-size:12px; letter-spacing:.14em; text-transform:uppercase; margin-bottom:6px}
+    .contact-chip span{display:block; font-size:17px}
+
+    footer{
+      padding:26px 0 48px; color:var(--soft);
+    }
+    .footer-wrap{
+      display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; align-items:center;
+      border-top:1px solid rgba(255,255,255,.06); padding-top:26px;
+    }
+
+    @media (max-width: 1100px){
+      .why-grid{grid-template-columns:repeat(3, 1fr)}
+      .supply-grid{grid-template-columns:repeat(2,1fr)}
+      .machine-wrap,.statement-wrap,.cta-panel,.hero-grid{grid-template-columns:1fr}
+      .hero-visual{min-height:520px}
+    }
+
+    @media (max-width: 820px){
+      .nav{min-height:68px}
+      .nav-links{display:none}
+      .container{width:min(var(--max), calc(100% - 24px))}
+      .hero{padding-top:34px}
+      .hero-copy{padding-top:8px}
+      .hero-visual{min-height:420px; border-radius:26px}
+      section{padding:58px 0}
+      .why-grid,.supply-grid,.two-col{grid-template-columns:1fr}
+      .cta-panel{padding:28px}
+      .visual-card{left:16px; right:16px; bottom:16px; padding:18px}
+      .btn{width:100%}
+      .hero-actions{display:grid; grid-template-columns:1fr}
+    }
+
+    @media (max-width: 560px){
+      h1{font-size:clamp(38px, 14vw, 54px)}
+      .statement h2,.section-head h2,.cta-panel h2{font-size:clamp(30px, 11vw, 42px)}
+      .why-grid{grid-template-columns:1fr}
+      .quote-card span{font-size:22px}
+      .trust-row{gap:8px}
+      .pill{font-size:12px; padding:9px 12px}
+      .brand-text strong{font-size:13px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Ground One Coffee home">
+        <div class="brand-mark">◎</div>
+        <div class="brand-text">
+          <small>Roasted in Botswana</small>
+          <strong>Ground One Coffee</strong>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#why">Why Ground One</a>
+        <a href="#coffee">Our Coffee</a>
+        <a href="#supply">Supply</a>
+        <a href="#machines">Machines</a>
+      </div>
+      <a href="#contact" class="btn btn-secondary">Get a Quote</a>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Ground One Coffee</div>
+          <h1>The coffee for the ones building Botswana.</h1>
+          <p>
+            Roasted in Gaborone. Delivered within days. Ground One is 100% Arabica coffee for offices, hospitality, retail and gifting — made for people doing the work that moves Botswana forward.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Get a Quote</a>
+            <a class="btn btn-secondary" href="#coffee">Explore the Range</a>
+          </div>
+          <div class="trust-row" aria-label="Ground One highlights">
+            <span class="pill">Roasted in Botswana</span>
+            <span class="pill">100% Arabica</span>
+            <span class="pill">Fresh within days</span>
+            <span class="pill">Built for supply</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-card">
+            <span class="mini">Ground One</span>
+            <h3>Roasted in Botswana. The coffee that belongs.</h3>
+            <p>Clean. Premium. Grounded. Coffee with a point of view and a place it belongs to.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="photo-band">
+      <div class="container photo-grid">
+        <div class="photo-panel">
+          <img src="groundone-visuals.webp" alt="Ground One coffee beans, brewed coffee and product bags in a premium dark setting" width="1024" height="1536" loading="lazy" decoding="async" fetchpriority="high">
+          <div class="overlay">
+            <strong>Real coffee. Real texture. Real presence.</strong>
+            <span>The visual world of Ground One — beans, bags, cups and the rhythm of the first pour.</span>
+          </div>
+        </div>
+        <div class="quote-card" style="height:100%; display:flex; flex-direction:column; justify-content:center;">
+          <strong>Visual direction</strong>
+          <span style="margin-bottom:12px;">Warm light. Dark surfaces. Product at the centre.</span>
+          <p style="margin:0; color:var(--muted); font-size:17px; line-height:1.7;">This is the look the brand should keep building on: grounded, premium, tactile and made for Botswana. Nothing glossy for the sake of it. Just honest coffee, presented with confidence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement">
+      <div class="container statement-wrap">
+        <div>
+          <h2>Before the day starts, the work has already begun.</h2>
+          <p>
+            This is coffee for the people building businesses, running teams, opening shops, making decisions, and showing up again tomorrow. Not aspirational. Useful. Grounded. Made here for here.
+          </p>
+        </div>
+        <div class="quote-card">
+          <strong>Ground One</strong>
+          <span>Inspirational, not performative. Built for Botswana. Part of building a stronger Botswana.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Why Ground One</div>
+          <h2>Coffee should do more than fill a cup.</h2>
+          <p>It should show up fresh. It should taste like quality. It should support the kind of country we want to keep building.</p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card">
+            <span class="kicker">Built for the work</span>
+            <h3>For the ones doing the work.</h3>
+            <p>The early starts. The long days. The decisions that move things forward.</p>
+          </article>
+          <article class="why-card">
+            <span class="kicker">Roasted here</span>
+            <h3>Fresh by geography.</h3>
+            <p>Roasted in Gaborone and delivered within days, not weeks in containers and warehouses.</p>
+          </article>
+          <article class="why-card">
+            <span class="kicker">100% Arabica</span>
+            <h3>No shortcuts.</h3>
+            <p>No fillers. No compromise. Just quality beans sourced for a better cup.</p>
+          </article>
+          <article class="why-card">
+            <span class="kicker">Consistent supply</span>
+            <h3>Reliable when it matters.</h3>
+            <p>Steady quality. Delivered when you need it. Built to support daily use, not occasional orders.</p>
+          </article>
+          <article class="why-card">
+            <span class="kicker">Built in Botswana</span>
+            <h3>Part of something bigger.</h3>
+            <p>Every bag supports a business built in Botswana, for Botswana.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="coffee">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Our Coffee</div>
+          <h2>100% Arabica. No compromise.</h2>
+          <p>Ground One is roasted to perform in offices, hospitality environments, retail shelves and everyday routines that need quality to be consistent.</p>
+        </div>
+
+        <div class="two-col" style="margin-top:30px;">
+          <article class="product-card featured product-shot medium">
+            <span class="kicker">Core roast</span>
+            <h3>Medium Roast</h3>
+            <p>Rich. Warm. Balanced. Built to work across espresso, filter and plunger.</p>
+            <div class="product-meta">
+              <span>250g</span>
+              <span>1kg</span>
+              <span>Whole Bean</span>
+              <span>Filter</span>
+            </div>
+          </article>
+          <article class="product-card product-shot dark">
+            <span class="kicker">Core roast</span>
+            <h3>Dark Roast</h3>
+            <p>Smoky. Bold. Full body. Holds its character through milk and keeps its presence in the cup.</p>
+            <div class="product-meta">
+              <span>250g</span>
+              <span>1kg</span>
+              <span>Whole Bean</span>
+              <span>Filter</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="two-col" style="margin-top:20px;">
+          <article class="product-card">
+            <span class="kicker">Also available</span>
+            <h3>Filter and bulk supply</h3>
+            <p>Single-serve sachets, high-volume filter formats and supply built for real operating environments.</p>
+          </article>
+          <article class="product-card">
+            <span class="kicker">Also available</span>
+            <h3>Decaf range</h3>
+            <p>Decaf whole bean and filter options for offices, hospitality teams and clients who want choice without compromise.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="supply" class="statement">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Built for where coffee matters</div>
+          <h2>Supply that fits the way Botswana works.</h2>
+          <p>Ground One is structured for offices, hospitality venues, retail shelves and premium gifting — with packaging, formats and service built around real demand.</p>
+        </div>
+
+        <div class="supply-grid">
+          <article class="supply-card">
+            <span class="kicker">01</span>
+            <h3>Offices &amp; corporates</h3>
+            <p>Fresh coffee on schedule for teams that rely on consistency and do not have time to manage stock problems.</p>
+          </article>
+          <article class="supply-card">
+            <span class="kicker">02</span>
+            <h3>Hospitality</h3>
+            <p>A premium local coffee for hotels, restaurants and cafés that want quality with a clear Botswana story behind it.</p>
+          </article>
+          <article class="supply-card">
+            <span class="kicker">03</span>
+            <h3>Retail</h3>
+            <p>Shelf-ready packaging built to stand alongside imported brands with confidence.</p>
+          </article>
+          <article class="supply-card">
+            <span class="kicker">04</span>
+            <h3>Corporate gifting</h3>
+            <p>A local product with presence. Simple, premium and suitable for client gifting and branded partnerships.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="machines">
+      <div class="container machine-wrap">
+        <article class="machine-card main">
+          <div class="eyebrow">Machines &amp; setup</div>
+          <h2 style="margin:0; font-size:clamp(32px,4vw,54px); line-height:1.02; letter-spacing:-.04em;">Coffee. Machines. Consumables. One system.</h2>
+          <p style="margin-top:16px; color:var(--muted); font-size:18px; max-width:680px;">
+            Ground One supplies bean-to-cup machines for offices and hospitality environments, with options to buy or rent and the ongoing consumables needed to keep everything running properly.
+          </p>
+          <div class="machine-list">
+            <div><strong style="color:var(--text);">For sale</strong><br>Entry, mid and premium machine options based on your volume and setup.</div>
+            <div><strong style="color:var(--text);">For rent</strong><br>One simple arrangement with machine, maintenance and coffee supply.</div>
+            <div><strong style="color:var(--text);">Consumables</strong><br>Cleaning tablets, descaling products, filters and milk-system cleaners.</div>
+          </div>
+        </article>
+        <article class="machine-card">
+          <span class="kicker">Why it matters</span>
+          <h3>Everything works better when the system is simple.</h3>
+          <p>Better coffee is not only about the bean. It is also about dependable equipment, easy replenishment and a supply partner that understands day-to-day use.</p>
+          <div style="margin-top:24px; display:grid; gap:12px;">
+            <div class="pill" style="width:max-content;">Office ready</div>
+            <div class="pill" style="width:max-content;">Hospitality ready</div>
+            <div class="pill" style="width:max-content;">Ongoing support</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta-band" id="contact">
+      <div class="container cta-panel">
+        <div>
+          <div class="eyebrow">Ground One Coffee</div>
+          <h2>Roasted in Botswana. The coffee that belongs.</h2>
+          <p>Tell us what you need and we will help you build the right coffee supply for your office, venue, shelf or gifting requirement.</p>
+          <div class="hero-actions" style="margin-top:24px;">
+            <a class="btn btn-primary" href="mailto:dumela@groundone.coffee">Email Us</a>
+            <a class="btn btn-secondary" href="https://groundone.coffee" target="_blank" rel="noopener">Visit groundone.coffee</a>
+          </div>
+        </div>
+        <div class="cta-side">
+          <div class="contact-chip">
+            <strong>Email</strong>
+            <span><a href="mailto:dumela@groundone.coffee">dumela@groundone.coffee</a></span>
+          </div>
+          <div class="contact-chip">
+            <strong>Call or WhatsApp</strong>
+            <span><a href="tel:+26776188014">+267 76 188 014</a></span>
+          </div>
+          <div class="contact-chip">
+            <strong>Website</strong>
+            <span><a href="https://groundone.coffee" target="_blank" rel="noopener">groundone.coffee</a></span>
+          </div>
+          <div class="contact-chip">
+            <strong>Location</strong>
+            <span>Plot 99, Unit 1, GICP, Gaborone</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>© Ground One Coffee 2026</div>
+      <div>Roasted in Botswana. Built for Botswana.</div>
+    </div>
+  </footer>
+</body>
+</html>
