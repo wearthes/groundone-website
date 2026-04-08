@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ground One Coffee</title>
+  <style>
+    :root{
+      --black:#0a0a0a;
+      --bone:#f4efe6;
+      --bone-2:#efe8de;
+      --earth:#8a7355;
+      --white:#f7f4ef;
+      --muted:#6d655d;
+      --line:rgba(17,17,17,.16);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--black);
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1120px, calc(100% - 48px)); margin:0 auto}
+
+    /* nav / hero */
+    .hero{
+      position:relative;
+      min-height:820px;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.58) 38%, rgba(0,0,0,.18) 68%, rgba(0,0,0,.18) 100%),
+        url('groundone-hero-clean.webp') center center / cover no-repeat;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:26px 0;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:15px;
+    }
+    .brand{
+      font-size:24px;
+      letter-spacing:.12em;
+      font-weight:500;
+    }
+    .nav-links{
+      display:flex;
+      gap:38px;
+      font-size:13px;
+      opacity:.95;
+    }
+    .hero-inner{
+      padding:88px 0 92px;
+      max-width:610px;
+    }
+    .hero h1{
+      margin:0 0 22px;
+      font-size:68px;
+      line-height:1.02;
+      letter-spacing:-.04em;
+      font-weight:700;
+      text-transform:uppercase;
+    }
+    .hero p{
+      margin:0 0 30px;
+      font-size:18px;
+      line-height:1.45;
+      color:rgba(247,244,239,.93);
+    }
+    .cta-row{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:172px;
+      height:52px;
+      padding:0 22px;
+      border:1px solid rgba(255,255,255,.5);
+      color:var(--white);
+      font-size:14px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      background:transparent;
+    }
+    .btn.primary{
+      background:var(--bone);
+      color:#111;
+      border-color:var(--bone);
+      font-weight:600;
+    }
+
+    /* why */
+    .why{
+      background:var(--bone);
+      color:#111;
+      padding:58px 0 34px;
+    }
+    .eyebrow{
+      margin:0 0 18px;
+      font-size:12px;
+      letter-spacing:.28em;
+      text-transform:uppercase;
+      color:#3b352e;
+    }
+    .why h2{
+      margin:0 0 42px;
+      max-width:720px;
+      font-size:60px;
+      line-height:1.02;
+      letter-spacing:-.05em;
+      font-weight:700;
+    }
+    .why-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:0 36px;
+      position:relative;
+    }
+    .why-grid:before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:6px;
+      bottom:22px;
+      width:1px;
+      background:var(--line);
+      transform:translateX(-18px);
+    }
+    .why-col{
+      display:grid;
+      gap:28px;
+    }
+    .why-item{
+      display:grid;
+      grid-template-columns:48px 1fr;
+      align-items:start;
+      gap:18px;
+      padding:6px 0 24px;
+    }
+    .why-item + .why-item{
+      border-top:1px solid var(--line);
+      padding-top:26px;
+    }
+    .icon{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      background:#181512;
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+    }
+    .icon svg{
+      width:24px;
+      height:24px;
+      stroke:#fff;
+      stroke-width:1.8;
+      fill:none;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+    .why-item h3{
+      margin:2px 0 8px;
+      font-size:18px;
+      line-height:1.2;
+    }
+    .why-item p{
+      margin:0;
+      font-size:14px;
+      line-height:1.45;
+      color:#4c453d;
+      max-width:330px;
+    }
+    .anchor-line{
+      margin:22px 0 0;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      text-align:center;
+      font-size:12px;
+      letter-spacing:.34em;
+      text-transform:uppercase;
+      color:#26211d;
+    }
+
+    /* product */
+    .product-hero{
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.68) 0%, rgba(0,0,0,.42) 38%, rgba(0,0,0,.12) 72%, rgba(0,0,0,.16) 100%),
+        url('groundone-product-clean.webp') center center / cover no-repeat;
+      min-height:560px;
+      display:flex;
+      align-items:center;
+    }
+    .product-copy{
+      max-width:410px;
+      padding:52px 0;
+    }
+    .product-copy h2{
+      margin:0 0 22px;
+      font-size:58px;
+      line-height:1.02;
+      letter-spacing:-.05em;
+      font-weight:700;
+      text-transform:uppercase;
+    }
+    .product-copy .lead{
+      font-size:22px;
+      margin:0 0 12px;
+      color:var(--white);
+    }
+    .product-copy .meta{
+      margin:0 0 28px;
+      font-size:16px;
+      line-height:1.55;
+      color:rgba(247,244,239,.9);
+    }
+
+    /* full range */
+    .range{
+      background:#0a0a0a;
+      padding:56px 0 66px;
+      color:var(--white);
+      border-top:1px solid rgba(255,255,255,.05);
+    }
+    .range-head{
+      text-align:center;
+      margin-bottom:34px;
+    }
+    .range-head .eyebrow{
+      color:rgba(247,244,239,.74);
+      margin-bottom:14px;
+    }
+    .range-head h3{
+      margin:0;
+      font-size:34px;
+      line-height:1.08;
+      letter-spacing:-.04em;
+      text-transform:uppercase;
+    }
+    .range-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:0;
+      border-top:1px solid rgba(255,255,255,.14);
+      border-bottom:1px solid rgba(255,255,255,.14);
+    }
+    .range-card{
+      padding:28px 24px 30px;
+      min-height:220px;
+      position:relative;
+    }
+    .range-card + .range-card{
+      border-left:1px solid rgba(255,255,255,.14);
+    }
+    .range-card h4{
+      margin:0 0 14px;
+      font-size:24px;
+      line-height:1.05;
+    }
+    .range-card p{
+      margin:0;
+      font-size:15px;
+      line-height:1.6;
+      color:rgba(247,244,239,.82);
+    }
+    .range-card small{
+      display:block;
+      margin-top:14px;
+      font-size:13px;
+      color:rgba(247,244,239,.62);
+      line-height:1.5;
+    }
+
+    /* channels */
+    .channels{
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.76), rgba(0,0,0,.76)),
+        radial-gradient(circle at 50% 20%, rgba(138,115,85,.18), transparent 42%);
+      padding:44px 0 26px;
+      color:var(--white);
+    }
+    .channels h3{
+      margin:0 0 34px;
+      text-align:center;
+      font-size:18px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:500;
+    }
+    .channel-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:0;
+      border-top:1px solid rgba(255,255,255,.14);
+      border-bottom:1px solid rgba(255,255,255,.14);
+    }
+    .channel{
+      padding:28px 20px 30px;
+    }
+    .channel + .channel{
+      border-left:1px solid rgba(255,255,255,.14);
+    }
+    .channel-top{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      min-height:62px;
+      margin-bottom:14px;
+    }
+    .channel .icon{
+      width:38px;height:38px;background:transparent;border:1px solid rgba(255,255,255,.34)
+    }
+    .channel .icon svg{
+      width:20px;height:20px
+    }
+    .channel h4{
+      margin:2px 0 0;
+      font-size:18px;
+      line-height:1.15;
+    }
+    .channel p{
+      margin:0;
+      font-size:14px;
+      line-height:1.55;
+      color:rgba(247,244,239,.84);
+    }
+    .setup-row{
+      display:flex;
+      justify-content:flex-end;
+      margin-top:22px;
+    }
+    .footer{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      align-items:center;
+      gap:12px;
+      padding:20px 0 8px;
+      color:rgba(247,244,239,.76);
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    .footer div:nth-child(2){text-align:center}
+    .footer div:nth-child(3){text-align:right}
+
+    @media (max-width: 980px){
+      .hero{min-height:720px}
+      .hero h1{font-size:54px}
+      .why h2{font-size:46px}
+      .product-copy h2{font-size:48px}
+      .range-grid,.channel-grid{grid-template-columns:repeat(2,1fr)}
+      .range-card:nth-child(3), .range-card:nth-child(4),
+      .channel:nth-child(3), .channel:nth-child(4){
+        border-top:1px solid rgba(255,255,255,.14);
+      }
+      .range-card:nth-child(3), .channel:nth-child(3){border-left:none}
+    }
+    @media (max-width: 760px){
+      .wrap{width:min(100% - 32px, 1120px)}
+      .nav{padding:20px 0}
+      .nav-links{display:none}
+      .brand{font-size:20px}
+      .hero{
+        min-height:600px;
+        background:
+          linear-gradient(180deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.45) 50%, rgba(0,0,0,.58) 100%),
+          url('groundone-hero-clean.webp') center center / cover no-repeat;
+      }
+      .hero-inner{padding:42px 0 64px; max-width:100%}
+      .hero h1{font-size:42px}
+      .hero p{font-size:17px; max-width:420px}
+      .btn{min-width:160px}
+      .why{padding:42px 0 26px}
+      .why h2{font-size:40px; margin-bottom:28px}
+      .why-grid{grid-template-columns:1fr; gap:0}
+      .why-grid:before{display:none}
+      .why-col + .why-col .why-item:first-child{border-top:1px solid var(--line); padding-top:26px}
+      .product-hero{min-height:520px}
+      .product-copy h2{font-size:40px}
+      .range-grid,.channel-grid{grid-template-columns:1fr}
+      .range-card + .range-card, .channel + .channel{
+        border-left:none;
+        border-top:1px solid rgba(255,255,255,.14);
+      }
+      .setup-row{justify-content:stretch}
+      .setup-row .btn{width:100%}
+      .footer{grid-template-columns:1fr; text-align:center}
+      .footer div:nth-child(2), .footer div:nth-child(3){text-align:center}
+    }
+  </style>
+</head>
+<body>
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">GROUND ONE</div>
+        <div class="nav-links">
+          <a href="#range">Coffee</a>
+          <a href="#channels">Supply</a>
+          <a href="#why">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="hero-inner">
+        <h1>THE COFFEE FOR THE ONES BUILDING BOTSWANA.</h1>
+        <p>Roasted to order in Gaborone. Delivered within days.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="mailto:dumela@groundone.coffee">Order Coffee</a>
+          <a class="btn" href="mailto:dumela@groundone.coffee?subject=Ground%20One%20Quote%20Request">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="wrap">
+      <p class="eyebrow">Why Ground One</p>
+      <h2>Before the day starts, the work has already begun.</h2>
+
+      <div class="why-grid">
+        <div class="why-col">
+          <div class="why-item">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="M8 7V5.5A2.5 2.5 0 0 1 10.5 3h3A2.5 2.5 0 0 1 16 5.5V7"/><path d="M4.5 7.5h15v10h-15z"/><path d="M4.5 11.5h15"/></svg>
+            </div>
+            <div>
+              <h3>Built for the ones doing the work.</h3>
+              <p>In Gaborone. Delivered within days. Not weeks.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3c.8 3-1.6 4.6-3 6.1A5.8 5.8 0 0 0 7.5 13 4.5 4.5 0 0 0 12 18a4.7 4.7 0 0 0 4.5-5.1c0-1.8-.7-3.1-2.1-4.6-.9-1-1.9-2.1-2.4-3.8Z"/><path d="M12 21c-2.4 0-4-1.2-4-3.2 0-1 .4-1.9 1.2-2.7.5 1.2 1.6 1.9 2.8 1.9s2.3-.7 2.8-1.9c.8.8 1.2 1.7 1.2 2.7C16 19.8 14.4 21 12 21Z"/></svg>
+            </div>
+            <div>
+              <h3>Roasted here.</h3>
+              <p>In Gaborone. Delivered within days. Not weeks.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-col">
+          <div class="why-item">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="M7 12c0 4 2.7 7 5 8 2.3-1 5-4 5-8 0-3.1-2.2-6-5-8-2.8 2-5 4.9-5 8Z"/><path d="M9.7 14.5c2.3-.5 3.9-2.3 4.6-5.2"/></svg>
+            </div>
+            <div>
+              <h3>100% Arabica.</h3>
+              <p>No fillers. No shortcuts. Just quality.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-8"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <div>
+              <h3>Consistent supply.</h3>
+              <p>Reliable. Steady. Always there when you need it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="anchor-line">Roasted in Botswana. The coffee that belongs.</div>
+    </div>
+  </section>
+
+  <section class="product-hero">
+    <div class="wrap">
+      <div class="product-copy">
+        <h2>100% Arabica. No Compromises.</h2>
+        <p class="lead">Medium Roast.</p>
+        <p class="meta">In Gaborone. Delivered within days.<br>Not weeks.</p>
+        <a class="btn" href="#range">View Full Range</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="range" id="range">
+    <div class="wrap">
+      <div class="range-head">
+        <p class="eyebrow">Full Range</p>
+        <h3>Coffee for every shelf, menu, and machine.</h3>
+      </div>
+
+      <div class="range-grid">
+        <div class="range-card">
+          <h4>Medium Roast</h4>
+          <p>Rich. Warm. Balanced. Built for everyday drinking across espresso, filter, and plunger.</p>
+          <small>Available in 250g and 1kg whole beans.</small>
+        </div>
+        <div class="range-card">
+          <h4>Dark Roast</h4>
+          <p>Bold. Smoky. Full body. Made to hold its character through milk and deliver a stronger cup.</p>
+          <small>Available in 250g and 1kg whole beans.</small>
+        </div>
+        <div class="range-card">
+          <h4>Filter &amp; Decaf</h4>
+          <p>Single-serve and bulk formats for teams, venues, and buyers who need simplicity without losing quality.</p>
+          <small>Filter sachets, decaf whole beans, and office-ready formats.</small>
+        </div>
+        <div class="range-card">
+          <h4>Bulk Supply</h4>
+          <p>Structured for repeat orders, hospitality, retail, and corporate environments that need steady supply.</p>
+          <small>Freshly roasted in Gaborone and delivered within days.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="channels" id="channels">
+    <div class="wrap">
+      <h3>Built for where coffee matters</h3>
+
+      <div class="channel-grid">
+        <div class="channel">
+          <div class="channel-top">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20V12h6v8"/><path d="M2 20h20"/></svg>
+            </div>
+            <h4>Offices &amp;<br>Corporates</h4>
+          </div>
+          <p>Fresh coffee, delivered. Better coffee for teams that start early and keep moving.</p>
+        </div>
+
+        <div class="channel">
+          <div class="channel-top">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M5 14h14l-1.5 5h-11z"/><path d="M8 14V9a4 4 0 0 1 8 0v5"/></svg>
+            </div>
+            <h4>Hospitality</h4>
+          </div>
+          <p>A premium local product that earns its place on menus, counters, and guest experiences.</p>
+        </div>
+
+        <div class="channel">
+          <div class="channel-top">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="M7 7V5.5A2.5 2.5 0 0 1 9.5 3h5A2.5 2.5 0 0 1 17 5.5V7"/><path d="M5 7h14v14H5z"/></svg>
+            </div>
+            <h4>Retail</h4>
+          </div>
+          <p>Shelf-ready packaging built to compete on quality, presentation, and freshness.</p>
+        </div>
+
+        <div class="channel">
+          <div class="channel-top">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4z"/><path d="M8 11h4"/><path d="M15 7V4"/><path d="M9 7V4"/><path d="M16 17v3"/><path d="M8 17v3"/></svg>
+            </div>
+            <h4>Machines</h4>
+          </div>
+          <p>Buy or rent. Premium machine support with consumables and steady coffee supply in one system.</p>
+        </div>
+      </div>
+
+      <div class="setup-row">
+        <a class="btn primary" href="mailto:dumela@groundone.coffee?subject=Ground%20One%20Setup%20Enquiry">Talk to us about setup</a>
+      </div>
+
+      <div class="footer" id="contact">
+        <div>© Ground One. All rights reserved.</div>
+        <div>Roasted in Gaborone, Botswana</div>
+        <div>dumela@groundone.coffee</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
