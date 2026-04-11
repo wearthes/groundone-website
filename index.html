@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ground One | Roasted in Botswana</title>
+  <meta name="description" content="Ground One. Roasted in Botswana. The coffee that belongs." />
+  <style>
+    :root{--black:#0A0A0A;--bone:#E8E0D0;--cream:#F8F4EE;--earth:#8A7355;--mid:#D0C8B8;--muted:#BFB6A8;--line:rgba(232,224,208,.16);--line-dark:rgba(10,10,10,.12);--green:#25D366;--max:1180px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--black);color:var(--bone);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
+    .container{width:min(var(--max),calc(100% - 40px));margin:0 auto}
+    .site-header{position:sticky;top:0;z-index:1000;background:rgba(10,10,10,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+    .nav-wrap{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}.brand img{height:30px}.brand span{font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--bone)}
+    .nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav a{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)} .nav a:hover,.nav a.active{color:var(--bone)} .nav .nav-cta{border:1px solid rgba(232,224,208,.24);padding:10px 14px;color:var(--bone)}
+    .hero{min-height:88vh;display:flex;align-items:end;background:linear-gradient(90deg,rgba(10,10,10,.82) 0%,rgba(10,10,10,.52) 45%,rgba(10,10,10,.18) 100%),linear-gradient(180deg,rgba(10,10,10,.15) 0%,rgba(10,10,10,.55) 100%),url('groundone-hero-split.webp') center center/cover no-repeat}
+    .hero-inner{width:min(var(--max),calc(100% - 40px));margin:0 auto;padding:120px 0 88px}
+    .eyebrow{display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mid);margin-bottom:18px}
+    h1,h2,h3,h4,p{margin:0}
+    h1{max-width:780px;font-size:clamp(42px,7vw,88px);line-height:.96;letter-spacing:-.04em;text-transform:uppercase;color:var(--bone)}
+    .hero-copy{max-width:620px;margin-top:22px;font-size:20px;color:#F0E8DB}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 20px;border:1px solid rgba(232,224,208,.24);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+    .btn-primary{background:var(--bone);color:var(--black);border-color:var(--bone)} .btn-secondary{background:transparent;color:var(--bone)}
+    .section{padding:86px 0}.section-dark{background:var(--black);color:var(--bone)} .section-light{background:var(--cream);color:var(--black)}
+    .statement p{font-size:24px;line-height:1.22;max-width:780px;color:var(--bone)} .statement p + p{margin-top:18px;color:var(--muted)}
+    .lede{font-size:clamp(28px,4vw,50px);line-height:1.06;letter-spacing:-.03em;text-transform:uppercase}
+    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:42px;border-top:1px solid var(--line-dark);border-left:1px solid var(--line-dark)}
+    .value{padding:28px 26px 26px;border-right:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);min-height:180px}
+    .value h3{font-size:22px;line-height:1.15;letter-spacing:-.02em;margin-bottom:12px}.value p{font-size:16px;color:#544D46;max-width:470px}
+    .brand-line{margin-top:34px;padding-top:22px;border-top:1px solid var(--line-dark);text-align:center;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#5f584f}
+    .product-band{min-height:520px;display:flex;align-items:center;background:linear-gradient(90deg,rgba(10,10,10,.84) 0%,rgba(10,10,10,.54) 44%,rgba(10,10,10,.12) 100%),url('groundone-product-split.webp') center center/cover no-repeat}
+    .product-copy{width:min(var(--max),calc(100% - 40px));margin:0 auto;padding:74px 0}
+    .product-copy h2{max-width:560px;font-size:clamp(34px,5vw,60px);line-height:1.02;letter-spacing:-.03em;text-transform:uppercase;color:var(--bone)}
+    .product-copy p{max-width:500px;margin-top:18px;font-size:18px;color:#E9E0D2}
+    .range-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:20px;border-top:1px solid var(--line-dark);border-left:1px solid var(--line-dark)}
+    .range-item{padding:26px;border-right:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+    .range-item h4{font-size:20px;line-height:1.1;letter-spacing:-.02em;margin-bottom:10px}.range-item p{font-size:15px;color:#524B44}
+    .dark-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:42px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+    .dark-card{padding:28px 26px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:180px}
+    .dark-card h3{font-size:22px;line-height:1.15;letter-spacing:-.02em;margin-bottom:12px}.dark-card p{font-size:16px;color:var(--muted);max-width:470px}
+    .trust{padding:30px 0 0;text-align:center}.trust p{font-size:18px;color:var(--muted)}
+    .cta{text-align:center;padding:92px 0 98px;border-top:1px solid var(--line)} .cta h2{font-size:clamp(34px,5vw,60px);line-height:1.02;letter-spacing:-.03em;text-transform:uppercase;max-width:860px;margin:0 auto 18px} .cta p{max-width:660px;margin:0 auto 30px;color:var(--muted);font-size:18px}
+    .footer{border-top:1px solid var(--line);padding:26px 0 40px;background:var(--black)} .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase}.footer-links{display:flex;flex-wrap:wrap;gap:18px}
+    .whatsapp-float{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 10px 30px rgba(0,0,0,.28);z-index:1200}
+    @media (max-width:980px){.range-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{overflow:auto;white-space:nowrap;width:100%;padding-bottom:2px}.nav-wrap{align-items:flex-start}}
+    @media (max-width:760px){.hero{min-height:82vh;background-position:center}.hero-inner{padding:110px 0 72px}.hero-copy{font-size:17px}.section{padding:68px 0}.grid-2,.dark-grid,.range-grid{grid-template-columns:1fr}.value,.dark-card,.range-item{min-height:auto}.brand span{font-size:12px}.nav a{font-size:11px}.btn{width:100%}.hero-actions{flex-direction:column;align-items:stretch}.statement p{font-size:20px}.footer-inner{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html"><img src="GroundOne_Logo_White_small.png" alt="Ground One logo" /><span>Ground One</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#why">Why</a><a href="#coffee">Coffee</a><a href="#range">Range</a><a href="about.html">About</a><a href="business.html">For Business</a><a href="safari.html">Safari</a><a class="nav-cta" href="https://wa.me/26776188014" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Ground One</span>
+      <h1>Before the world wakes up, you are already building it.</h1>
+      <p class="hero-copy">Roasted in Botswana. The coffee that belongs. Built for the ones making Botswana.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/26776188014" target="_blank" rel="noopener">WhatsApp Us</a>
+        <a class="btn btn-secondary" href="about.html">About Ground One</a>
+        <a class="btn btn-secondary" href="business.html">For Business</a>
+      </div>
+    </div>
+  </section>
+  <section class="section section-dark"><div class="container statement"><p>You are not waiting for permission. You decided. And then you started.</p><p>The future belongs to the ones who make things. Not the ones who talk about making things.</p></div></section>
+  <section id="why" class="section section-light">
+    <div class="container">
+      <span class="eyebrow">Why Ground One</span>
+      <h2 class="lede">Before the day starts, the work has already begun.</h2>
+      <div class="grid-2">
+        <div class="value"><h3>Built for the ones doing the work.</h3><p>Made for early starts, long days, and teams that rely on consistency.</p></div>
+        <div class="value"><h3>100% Arabica.</h3><p>No fillers. No shortcuts. Just quality.</p></div>
+        <div class="value"><h3>Roasted here.</h3><p>Freshly roasted in Botswana for better flavour in every cup.</p></div>
+        <div class="value"><h3>Consistent supply.</h3><p>Reliable. Steady. Always there when you need it.</p></div>
+      </div>
+      <div class="brand-line">Roasted in Botswana. The coffee that belongs.</div>
+    </div>
+  </section>
+  <section id="coffee" class="product-band">
+    <div class="product-copy">
+      <span class="eyebrow">Coffee</span>
+      <h2>100% Arabica. No compromises.</h2>
+      <p>Medium and dark roasts designed for everyday drinking across espresso, plunger, and filter.</p>
+      <p>Available in 250g, 1kg, filter, decaf, and bulk formats.</p>
+      <div class="hero-actions"><a class="btn btn-secondary" href="#range">View Full Range</a></div>
+    </div>
+  </section>
+  <section id="range" class="section section-light">
+    <div class="container">
+      <span class="eyebrow">Full Range</span>
+      <div class="range-grid">
+        <div class="range-item"><h4>Whole Beans</h4><p>Medium roast and dark roast in 250g and 1kg formats.</p></div>
+        <div class="range-item"><h4>Filter Coffee</h4><p>Single-serve sachets and larger format cases for teams and venues.</p></div>
+        <div class="range-item"><h4>Decaf</h4><p>Whole beans and filter options for offices, hospitality, and retail.</p></div>
+        <div class="range-item"><h4>Bulk Cases</h4><p>Built for higher-volume supply with clean packaging and reliable turnaround.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-dark">
+    <div class="container">
+      <span class="eyebrow">Built For Where Coffee Matters</span>
+      <div class="dark-grid">
+        <div class="dark-card"><h3>Offices & Corporates</h3><p>Fresh coffee, delivered. Built for teams that need consistency more than fuss.</p></div>
+        <div class="dark-card"><h3>Hospitality</h3><p>A premium local product that performs across service and leaves the right impression.</p></div>
+        <div class="dark-card"><h3>Retail</h3><p>Shelf-ready packaging with a Botswana story that feels clear, grounded, and ownable.</p></div>
+        <div class="dark-card"><h3>Safari</h3><p>A coffee experience for lodges, camps, and guests who want to take a piece of Botswana home.</p></div>
+      </div>
+      <div class="trust"><p>Trusted by cafés, offices, and hospitality teams choosing a Botswana-roasted coffee with a point of view.</p></div>
+    </div>
+  </section>
+  <section class="section section-dark">
+    <div class="container cta">
+      <h2>Roasted in Botswana. Built for Botswana.</h2>
+      <p>Tell us what you need. We’ll help you find the right Ground One setup for your team, venue, lodge, or shelves.</p>
+      <div class="hero-actions" style="justify-content:center;"><a class="btn btn-primary" href="https://wa.me/26776188014" target="_blank" rel="noopener">WhatsApp Us</a><a class="btn btn-secondary" href="mailto:dumela@groundone.coffee">Email Us</a></div>
+    </div>
+  </section>
+  <footer class="footer"><div class="container footer-inner"><div>Ground One · Roasted in Botswana</div><div class="footer-links"><a href="about.html">About</a><a href="business.html">For Business</a><a href="safari.html">Safari</a></div></div></footer>
+  <a class="whatsapp-float" href="https://wa.me/26776188014" target="_blank" rel="noopener" aria-label="WhatsApp Ground One">💬</a>
+</body>
+</html>
